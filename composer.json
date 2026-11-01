@@ -1,0 +1,49 @@
+{
+    "name": "proclame/clubplanner-be-php-sdk",
+    "description": "PHP SDK for the Club Planner Partner API.",
+    "type": "library",
+    "keywords": ["clubplanner", "club planner", "sdk", "api", "gym"],
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^7.5"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.18",
+        "orchestra/testbench": "^9.0 || ^10.0 || ^11.0",
+        "phpstan/phpstan": "^2.0",
+        "phpunit/phpunit": "^11.0 || ^12.0"
+    },
+    "suggest": {
+        "illuminate/support": "To use the bundled Laravel service provider."
+    },
+    "autoload": {
+        "psr-4": {
+            "Proclame\\ClubPlanner\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Proclame\\ClubPlanner\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "generate": [
+            "@php tools/generate.php",
+            "pint src/Resources --quiet"
+        ],
+        "test": "phpunit",
+        "analyse": "phpstan analyse",
+        "format": "pint"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Proclame\\ClubPlanner\\Laravel\\ClubPlannerServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
